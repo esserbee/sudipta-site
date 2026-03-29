@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>USTA Tools · Sudipta Romen Biswas</title>
+    <meta name="description" content="USTA tools embedded from a Flask app hosted on Render." />
+
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="./index.html" class="brand" aria-label="Sudipta Romen Biswas home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+              <circle cx="16" cy="16" r="15" class="logo-ring" />
+              <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle">SB</text>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-title">Sudipta Romen Biswas</span>
+            <span class="brand-subtitle">Computational nanophotonics & 2D materials</span>
+          </span>
+        </a>
+        <button class="icon-button nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./index.html#about">About</a>
+          <a href="./index.html#research">Research</a>
+          <a href="./tools.html" aria-current="page">Tools</a>
+        </nav>
+        <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero hero-compact">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="eyebrow">Tools</p>
+            <h1 class="hero-title">USTA Tools</h1>
+            <p class="hero-tagline">
+              This page embeds the USTA tools Flask application hosted on Render. Update the iframe source URL below to
+              match your deployed app (for example, <code>https://usta-tools.sudiptarbiswas.com</code>).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="embed-wrapper">
+            <iframe
+              src="https://usta-tools.sudiptarbiswas.com/"
+              title="USTA Tools embedded app"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-popups allow-popups-to-escape-sandbox"
+            ></iframe>
+          </div>
+          <p class="embed-note">
+            If you change the domain or path of your Render deployment, just update the <code>src</code> attribute of the
+            iframe in <code>usta-tool.html</code>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> Sudipta Romen Biswas. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./assets/script.js" defer></script>
+  </body>
+</html>
