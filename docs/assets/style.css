@@ -386,7 +386,8 @@ html[data-theme='light'] .site-header {
 
 .card-list {
   margin-top: var(--space-2);
-  padding-left: var(--space-4);
+  padding: 0;
+  list-style: none;
   color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
