@@ -660,21 +660,6 @@ html[data-theme='light'] .site-footer {
   color: var(--color-accent);
 }
 
-.research-visual {
-  margin-bottom: var(--space-4);
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface-2);
-}
-
-.research-visual svg,
-.research-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* Section CTA */
 .section-cta {
   margin-top: var(--space-8);
