@@ -525,6 +525,10 @@ html[data-theme='light'] .site-footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .certification-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -625,6 +629,11 @@ html[data-theme='light'] .site-footer {
   gap: var(--space-4);
 }
 
+.certification-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
 /* Card Enhancements */
 .card-featured {
   border-color: rgba(79, 209, 197, 0.3);
@@ -649,6 +658,21 @@ html[data-theme='light'] .site-footer {
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--color-accent);
+}
+
+.research-visual {
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.research-visual svg,
+.research-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Section CTA */
