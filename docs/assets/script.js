@@ -43,38 +43,3 @@
     yearEl.textContent = new Date().getFullYear();
   }
 })();
-
-// Live citation counts via Semantic Scholar API (falls back to hardcoded values on error)
-(async function updateCitations() {
-  const API_BASE = 'https://api.semanticscholar.org/graph/v1/paper/DOI:';
-  const FIELDS = '?fields=citationCount';
-
-  const articles = Array.from(document.querySelectorAll('[data-doi]'));
-  if (!articles.length) return;
-
-  const results = await Promise.all(
-    articles.map(async (article) => {
-      const doi = article.dataset.doi;
-      const span = article.querySelector('.citation-count');
-      try {
-        const res = await fetch(API_BASE + doi + FIELDS);
-        if (!res.ok) return null;
-        const data = await res.json();
-        const count = data.citationCount;
-        if (typeof count === 'number') {
-          if (span) span.textContent = count;
-          return count;
-        }
-      } catch (_) {}
-      return null;
-    })
-  );
-
-  const allFetched = results.every((c) => c !== null);
-  if (allFetched) {
-    const total = results.reduce((sum, c) => sum + c, 0);
-    document.querySelectorAll('.citation-total').forEach((el) => {
-      el.textContent = total + '+';
-    });
-  }
-})();
