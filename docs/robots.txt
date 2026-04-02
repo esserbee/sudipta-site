@@ -13,4 +13,7 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://sudiptarbiswas.com/sitemap.xml
