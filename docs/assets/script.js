@@ -37,6 +37,36 @@
     });
   }
 
+  // Nav dropdowns
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach((item) => {
+    const parent = item.querySelector('.nav-parent');
+    if (!parent) return;
+    
+    // On desktop, we want the link to work immediately on click.
+    // The dropdown opens via CSS hover.
+    // On mobile, the first click opens the menu.
+    parent.addEventListener('click', (e) => {
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile) {
+        const isOpen = item.classList.contains('open');
+        if (!isOpen) {
+          e.preventDefault(); // Stop navigation to open menu first
+          navItems.forEach(i => i.classList.remove('open'));
+          item.classList.add('open');
+        }
+        // If already open, let it navigate
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item')) {
+      navItems.forEach((item) => item.classList.remove('open'));
+    }
+  });
+
   // Year in footer
   const yearEl = document.getElementById('year');
   if (yearEl) {

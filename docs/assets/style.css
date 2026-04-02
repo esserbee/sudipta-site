@@ -210,6 +210,80 @@ html[data-theme='light'] .site-header {
   color: var(--color-text);
 }
 
+/* Anchor offset for fixed header */
+section[id], h3[id], article[id] {
+  scroll-margin-top: 100px; /* Precise pixel value for better control */
+}
+
+/* Nav dropdowns */
+.nav-item {
+  position: relative;
+  /* Bridging the gap between nav-parent and dropdown */
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.nav-parent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-chevron {
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+  pointer-events: none; /* Let clicks pass through to the link */
+}
+
+.nav-item:hover .nav-chevron,
+.nav-item:focus-within .nav-chevron,
+.nav-item.open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) 0;
+  min-width: 15rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 200;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown,
+.nav-item.open .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.nav-dropdown a:hover {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  text-decoration: none;
+}
+
+.nav-dropdown a::after {
+  display: none;
+}
+
 .icon-button {
   width: 34px;
   height: 34px;
@@ -504,6 +578,38 @@ html[data-theme='light'] .site-footer {
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--color-border);
+    border-radius: 0;
+    padding: var(--space-1) 0;
+    margin-top: var(--space-1);
+    margin-left: var(--space-4);
+    background: transparent;
+    min-width: 0;
+    display: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    transform: none;
+  }
+
+  .nav-item.open .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    transform: none;
+  }
+
   .site-header.nav-open .site-nav {
     transform: translateY(0);
     opacity: 1;
@@ -555,13 +661,7 @@ html[data-theme='light'] .site-footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .certification-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* certification-grid and portfolio-grid intentionally left single-column */
 }
 
 /* Hero with Photo */

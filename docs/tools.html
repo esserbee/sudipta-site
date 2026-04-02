@@ -30,8 +30,24 @@
         </button>
         <nav class="site-nav" aria-label="Primary">
           <a href="./index.html#about">About</a>
-          <a href="./index.html#portfolio">Portfolio</a>
-          <a href="./index.html#research">Research</a>
+          <div class="nav-item">
+            <a href="./index.html#portfolio" class="nav-parent">Portfolio <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="nav-dropdown">
+              <a href="./index.html#portfolio-meta">Meta</a>
+              <a href="./index.html#portfolio-apple">Apple</a>
+              <a href="./index.html#portfolio-lumileds">Lumileds</a>
+              <a href="./index.html#portfolio-3m">3M</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="./index.html#research" class="nav-parent">Research <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="nav-dropdown">
+              <a href="./index.html#research-metasurfaces">Tunable Graphene Metasurfaces</a>
+              <a href="./index.html#research-nonlinear">Tunable Nonlinear Optics</a>
+              <a href="./index.html#research-gas-sensing">Plasmon-based Gas Sensing</a>
+              <a href="./index.html#research-ug">Undergraduate Research</a>
+            </div>
+          </div>
           <a href="./index.html#certifications">Certifications</a>
           <a href="./tools.html" aria-current="page">Tools</a>
         </nav>
@@ -76,14 +92,14 @@
               <a class="card-link" href="./usta-tool.html">Open embedded USTA Tools</a>
             </article>
 
-            <article class="card card-muted">
+            <!-- <article class="card card-muted">
               <h2 class="card-title">Future tools</h2>
               <p class="card-body">
                 Add additional tools here as your portfolio of utilities grows (e.g., photonics calculators,
                 visualization widgets, or ML demos).
               </p>
               <p class="card-meta">Duplicate this card in <code>tools.html</code> and update the link.</p>
-            </article>
+            </article> -->
           </div>
         </div>
       </section>

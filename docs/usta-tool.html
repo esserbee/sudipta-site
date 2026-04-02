@@ -30,7 +30,15 @@
         </button>
         <nav class="site-nav" aria-label="Primary">
           <a href="./index.html#about">About</a>
-          <a href="./index.html#research">Research</a>
+          <div class="nav-item">
+            <a href="./index.html#research" class="nav-parent">Research <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="nav-dropdown">
+              <a href="./index.html#research-metasurfaces">Tunable Graphene Metasurfaces</a>
+              <a href="./index.html#research-nonlinear">Tunable Nonlinear Optics</a>
+              <a href="./index.html#research-gas-sensing">Plasmon-based Gas Sensing</a>
+              <a href="./index.html#research-ug">Undergraduate Research</a>
+            </div>
+          </div>
           <a href="./tools.html" aria-current="page">Tools</a>
         </nav>
         <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
