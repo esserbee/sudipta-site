@@ -18,6 +18,9 @@ PAPERS = [
     ("10.1103/PhysRevB.107.115409", "band nesting"),
     ("10.1038/s41467-019-09008-0", "gas identification"),
     ("10.1103/PhysRevApplied.13.011002", "nanoribbon"),
+    ("phd-thesis-tunable", "tunable hyperbolicity"),
+    ("10.1109/ICECE.2012.6471671", "ballistic modeling"),
+    ("10.1109/ICIEV.2012.6317387", "ballistic modeling"),
 ]
 
 HTML_PATH = "docs/index.html"
@@ -54,11 +57,26 @@ def main():
             print(f"  No match for doi={doi} keyword='{keyword}' — skipping")
             continue
 
+        # Look for the citation count span within the article tag that has the matching data-doi
         pattern = (
-            rf'(<article[^>]*data-doi="{re.escape(doi)}".*?'
-            r'<span class="citation-count">)\d+(</span>)'
+            rf'(<article[^>]*data-doi="{re.escape(doi)}".*?)'
+            r'(<span class="citation-count">)\d+(</span>)'
         )
-        updated = re.sub(pattern, rf"\g<1>{count}\g<2>", html, flags=re.DOTALL)
+        
+        # If the span doesn't exist yet (like for the PhD thesis), we need a different pattern to insert it
+        if not re.search(pattern, html, flags=re.DOTALL):
+            # Try to insert it before the first <a> or </div> in that article
+            insert_pattern = rf'(<article[^>]*data-doi="{re.escape(doi)}".*?)(<a|<div|/article>)'
+            updated = re.sub(
+                insert_pattern,
+                rf'\g<1><p class="card-meta"><strong><span class="citation-count">{count}</span> citations</strong></p>\g<2>',
+                html,
+                count=1,
+                flags=re.DOTALL
+            )
+        else:
+            updated = re.sub(pattern, rf"\g<1>\g<2>{count}\g<3>", html, flags=re.DOTALL)
+        
         if updated != html:
             html = updated
             changed = True
