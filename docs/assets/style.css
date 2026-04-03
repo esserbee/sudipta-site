@@ -456,6 +456,7 @@ section[id], h3[id], article[id] {
 .card-body {
   margin-top: var(--space-2);
   color: var(--color-text-muted);
+  font-size: var(--text-base);
 }
 
 .card-img {
@@ -657,8 +658,12 @@ html[data-theme='light'] .site-footer {
     align-items: center;
   }
 
-  .research-grid {
+.research-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .research-grid .card-full {
+    grid-column: span 2;
   }
 
   /* certification-grid and portfolio-grid intentionally left single-column */
@@ -959,7 +964,7 @@ html[data-theme='light'] .site-footer {
 }
 
 .research-group-desc {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--color-text-muted);
   margin-bottom: var(--space-4);
   max-width: 48rem;
